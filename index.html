@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLCEMAT Boutique</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    header { background-color: #002244; color: white; padding: 20px; text-align: center; }
+    h1 { margin: 0; font-size: 2em; }
+    nav { background-color: #004080; padding: 10px; text-align: center; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .product-container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
+    .product { background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 15px; max-width: 200px; text-align: center; }
+    .product img { width: 100%; border-radius: 8px; }
+    .product h3 { margin: 10px 0 5px; font-size: 1.1em; }
+    .product p { font-size: 0.9em; color: #555; }
+    .buy-button { display: inline-block; margin-top: 10px; background-color: #007BFF; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; }
+    .buy-button:hover { background-color: #0056b3; }
+    footer { background-color: #002244; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+    .partner-button { display: inline-block; margin-top: 20px; background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .partner-button:hover { background-color: #1e7e34; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue dans la Boutique OLCEMAT</h1>
+    <p>Commandez vos vêtements et accessoires personnalisés avec style</p>
+  </header>
+
+  <nav>
+    <a href="https://whatsapp.com/channel/0029VaykEecGE56jUBsgRb2n" target="_blank">WhatsApp</a>
+    <a href="https://youtube.com/@mr-rio-billions?si=5MXQ0BALBV2Ber6-" target="_blank">YouTube</a>
+    <a href="https://chat.whatsapp.com/BROpeDJ7jlWCsbEQG4i3kn" target="_blank">Formation VisionTech World</a>
+    <a href="#a-propos">À Propos</a>
+  </nav>
+
+  <div class="product-container"></div>
+
+  <section id="a-propos" style="padding: 40px; background: #e0e0e0; text-align: center;">
+    <h2>À propos de nous</h2>
+    <p>OLCEMAT est une marque spécialisée dans la mode personnalisée. Nous vous offrons la possibilité de commander des vêtements uniques avec impression de vos idées ou de notre marque officielle. Vous pouvez aussi commander votre propre site web professionnel et suivre nos formations gratuites via notre communauté VisionTech World.</p>
+    <a href="https://wa.me/+22898207231?text=Je%20souhaite%20signer%20un%20partenariat%20avec%20OLCEMAT" class="partner-button" target="_blank">Devenir Partenaire</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 OLCEMAT. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const produits = [
+      { nom: "T-shirt Blanc 'Happy New Year'", description: "T-shirt blanc avec impression 'Happy New Year' festive et élégante.", image: "https://imgur.com/dUcG3JE.jpg" },
+      { nom: "Pull-over Rose OLCEMAT", description: "Pull-over rose doux avec impression de la marque OLCEMAT.", image: "https://imgur.com/IWmQEZ1.jpg" },
+      { nom: "T-shirt Blanc 'Merry Christmas'", description: "T-shirt blanc décoré avec le message 'Merry Christmas'.", image: "https://imgur.com/warY3Cr.jpg" },
+      { nom: "T-shirt Gris OLCEMAT Style 1", description: "T-shirt gris personnalisé avec logo OLCEMAT (style 1).", image: "https://imgur.com/SoT5YlI.jpg" },
+      { nom: "T-shirt Gris OLCEMAT Style 2", description: "T-shirt gris personnalisé avec logo OLCEMAT (style 2).", image: "https://imgur.com/wbiKQHj.jpg" },
+      { nom: "T-shirt Bleu Ciel", description: "T-shirt bleu ciel simple et élégant pour tous les jours.", image: "https://imgur.com/9x5n2ka.jpg" },
+      { nom: "T-shirt Rose", description: "T-shirt rose moderne et doux pour les amoureux de couleur.", image: "https://imgur.com/81eR0Mg.jpg" },
+      { nom: "T-shirt Rouge", description: "T-shirt rouge vif avec un design attractif.", image: "https://imgur.com/DPJK9kz.jpg" },
+      { nom: "T-shirt Violet", description: "T-shirt violet tendance avec coupe confortable.", image: "https://imgur.com/6SYOiQh.jpg" },
+      { nom: "T-shirt Noir", description: "T-shirt noir classique et indémodable.", image: "https://imgur.com/gdJKR9D.jpg" },
+      { nom: "T-shirt Jaune", description: "T-shirt jaune éclatant et lumineux pour une touche solaire.", image: "https://imgur.com/hoPMGn0.jpg" },
+      { nom: "T-shirt Gris Clair", description: "T-shirt gris clair passe-partout avec style neutre.", image: "https://imgur.com/d9k59wW.jpg" },
+      { nom: "T-shirt Blanc Uni", description: "T-shirt blanc uni idéal pour personnalisation.", image: "https://imgur.com/d3UvbKo.jpg" },
+      { nom: "T-shirt Bleu Ciel (Variante 2)", description: "Autre modèle de t-shirt bleu ciel élégant.", image: "https://imgur.com/LDmmq8e.jpg" },
+      { nom: "T-shirt Bleu Ciel (Variante 3)", description: "Troisième variante de t-shirt bleu ciel.", image: "https://imgur.com/ksNBvoN.jpg" },
+      { nom: "T-shirt Vert OLCEMAT PAMANE", description: "T-shirt vert personnalisé avec la marque OLCEMAT PAMANE.", image: "https://imgur.com/aM2tafB.jpg" },
+      { nom: "T-shirt Noir avec Logo OLCEMAT", description: "T-shirt noir avec design OLCEMAT imprimé.", image: "https://imgur.com/OXtGkSO.jpg" },
+      { nom: "T-shirt Rose avec Logo OLCEMAT", description: "T-shirt rose moderne avec logo OLCEMAT au centre.", image: "https://imgur.com/YAoj66X.jpg" },
+      { nom: "T-shirt Bleu avec Marque OLCEMAT", description: "T-shirt bleu stylisé avec impression OLCEMAT.", image: "https://imgur.com/ejreToT.jpg" },
+      { nom: "Logo OLCEMAT Étoile Classique", description: "Logo officiel à imprimer sur les produits OLCEMAT.", image: "https://imgur.com/wwCiB86.jpg" },
+      { nom: "Logo OLCEMAT Variante Moderne", description: "Version alternative du logo OLCEMAT pour design moderne.", image: "https://imgur.com/AP9MfO9.jpg" }
+    ];
+
+    const container = document.querySelector(".product-container");
+    produits.forEach(p => {
+      container.innerHTML += `
+        <div class="product">
+          <img src="${p.image}" alt="${p.nom}">
+          <h3>${p.nom}</h3>
+          <p>${p.description}</p>
+          <a href="https://wa.me/+22898207231?text=Je%20veux%20commander%20le%20${encodeURIComponent(p.nom)}" class="buy-button">Commander</a>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
