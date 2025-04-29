@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLCEMAT Boutique</title>
+  <link rel="icon" href="https://imgur.com/ShAyWRB" sizes="192x192">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker enregistré avec succès:', registration);
+        })
+        .catch(function(error) {
+          console.log('Échec de l\'enregistrement du Service Worker:', error);
+        });
+    }
+  </script>
   <style>
     body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
     header { background-color: #002244; color: white; padding: 20px; text-align: center; }
