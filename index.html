@@ -1,297 +1,155 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OLCEMAT Boutique</title>
-  <link rel="icon" href="IMG 192.jpg" sizes="192x192">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker enregistré avec succès:', registration);
-        })
-        .catch(function(error) {
-          console.log('Échec de l\'enregistrement du Service Worker:', error);
-        });
-    }
-  </script>
-  <style>
-    /* ===== BODY ET FOND ===== */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #1a1a1a;
-      margin: 0;
-      padding: 0;
-      color: #f0f0f0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLCEMAT & TSHéTSHéBA</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif;}
+  html {scroll-behavior: smooth;}
+  body {background:#f5f5f5; color:#111;}
+  a {text-decoration:none; color:inherit;}
 
-    /* ===== HEADER ===== */
-    header {
-      background: #111;
-      color: #ff2d95;
-      padding: 30px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-    }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { font-size: 1.2em; color: #e0e0e0; }
+  header {
+    display:flex; justify-content:space-between; align-items:center; 
+    padding:20px 50px; background:#111; color:white; position:sticky; top:0; z-index:1000;
+  }
+  header nav a {margin-left:25px; font-weight:600; transition:0.3s;}
+  header nav a:hover {color:#f39c12;}
 
-    /* ===== NAVIGATION ===== */
-    nav {
-      background-color: #222;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-    nav a {
-      display: inline-block;
-      margin: 0 15px;
-      padding: 8px 18px;
-      border-radius: 50px;
-      background: #2a2a2a;
-      color: #ff2d95;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 8px rgba(255,45,149,0.2);
-    }
-    nav a:hover {
-      background: #ff2d95;
-      color: #111;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(255,45,149,0.5);
-    }
+  .hero {
+    height:80vh; background:#222; display:flex; align-items:center; justify-content:center; 
+    color:white; text-align:center;
+  }
+  .hero h1 {
+    font-size:3rem; opacity:0;
+    animation: fadeInUp 1.5s ease forwards;
+  }
 
-    /* ===== GRID PRODUITS ===== */
-    .product-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      padding: 30px;
-      justify-items: center;
-    }
-    .product {
-      background: #2a2a2a;
-      border-radius: 15px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-    .product:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 15px 25px rgba(255,45,149,0.3);
-    }
-    .product img {
-      width: 100%;
-      border-bottom: 2px solid #ff2d95;
-      transition: transform 0.3s;
-    }
-    .product:hover img { transform: scale(1.05); }
-    .product h3 {
-      margin: 15px 0 8px;
-      font-size: 1.2em;
-      color: #ff2d95;
-    }
-    .product p {
-      font-size: 0.95em;
-      color: #ccc;
-      padding: 0 10px 10px;
-    }
-    .buy-button {
-      display: inline-block;
-      margin: 10px 0 15px;
-      background-color: #ff2d95;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .buy-button:hover {
-      background-color: #ff66c2;
-      transform: scale(1.05);
-    }
+  @keyframes fadeInUp {
+    0% {opacity:0; transform:translateY(50px);}
+    100% {opacity:1; transform:translateY(0);}
+  }
 
-    /* ===== SECTION A PROPOS ===== */
-    #a-propos {
-      padding: 50px 30px;
-      background: #111;
-      color: #f0f0f0;
-      text-align: center;
-      border-top: 2px solid #ff2d95;
-      border-bottom: 2px solid #ff2d95;
-    }
-    #a-propos h2 { color: #ff2d95; font-size: 2em; margin-bottom: 15px; }
-    #a-propos p { max-width: 700px; margin: 0 auto 20px; line-height: 1.6; }
-    .partner-button {
-      background-color: #ff2d95;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .partner-button:hover { background-color: #ff66c2; }
+  section {padding:80px 50px;}
+  section h2 {text-align:center; font-size:2.5rem; margin-bottom:50px; color:#111;}
+  .grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
 
-    /* ===== SECTION FORMATION ===== */
-    #formation-section {
-      background: #1a1a1a;
-      color: #f0f0f0;
-      padding: 50px 20px;
-      text-align: center;
-      border-top: 2px solid #ff2d95;
-      border-bottom: 2px solid #ff2d95;
-    }
-    #formation-section h2 {
-      color: #ff2d95;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    #formation-section p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    .formation-button {
-      display: inline-block;
-      background: #ff2d95;
-      color: #fff;
-      padding: 12px 25px;
-      margin: 10px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .formation-button:hover {
-      background: #ff66c2;
-      transform: scale(1.05);
-    }
+  .card {
+    background:white; border-radius:15px; overflow:hidden; 
+    box-shadow:0 5px 25px rgba(0,0,0,0.1); transition:0.4s;
+  }
+  .card:hover {
+    transform:translateY(-10px); 
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  }
+  .card img {width:100%; display:block; height:auto; transition: transform 0.4s ease;}
+  .card:hover img {transform: scale(1.05);}
+  .card-content {padding:20px; text-align:center;}
+  .card-content h3 {margin-bottom:10px; font-size:1.5rem; color:#111;}
+  .card-content p {margin-bottom:15px; color:#555; font-weight:500;}
+  .card-content a button {
+    padding:12px 30px; border:none; border-radius:50px; 
+    background:#f39c12; color:white; font-weight:700; cursor:pointer; transition:0.4s all;
+  }
+  .card-content a button:hover {
+    transform: translateY(-3px) scale(1.05);
+    background:#e67e22;
+  }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background-color: #111;
-      color: #ff2d95;
-      text-align: center;
-      padding: 25px;
-      box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
-    }
+  footer {background:#111; color:white; text-align:center; padding:30px 20px;}
+  footer a {color:#f39c12; margin:0 10px;}
 
-    /* ===== ROBOT IA ===== */
-    #chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #2a2a2a;
-      color: #ff2d95;
-      padding: 15px 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.7);
-      max-width: 280px;
-      z-index: 9999;
-      animation: slideIn 0.5s ease-out;
-    }
-    #chatbot button {
-      background: #ff2d95;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 5px 12px;
-      cursor: pointer;
-      float: right;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    #chatbot button:hover { background: #ff66c2; }
-
-    @keyframes slideIn {
-      from { transform: translateY(100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  </style>
+  @media (max-width:768px) {
+    header {flex-direction:column; padding:20px;}
+    header nav a {margin:10px;}
+    .hero h1 {font-size:2rem; padding:0 10px;}
+    section {padding:50px 20px;}
+    .card-content h3 {font-size:1.2rem;}
+    .card-content a button {padding:10px 20px; font-size:0.9rem;}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Bienvenue dans la Boutique OLCEMAT</h1>
-    <p>Commandez vos vêtements et accessoires personnalisés avec style</p>
-  </header>
 
+<header>
+  <div class="logo"><h1>OLCEMAT & TSHéTSHéBA</h1></div>
   <nav>
-    <a href="#formation-section">Formation</a>
-    <a href="https://whatsapp.com/channel/0029VaykEecGE56jUBsgRb2n" target="_blank">WhatsApp</a>
-    <a href="https://youtube.com/@mr-rio-billions?si=5MXQ0BALBV2Ber6-" target="_blank">YouTube</a>
-    <a href="#a-propos">À Propos</a>
+    <a href="#olcemat">OLCEMAT</a>
+    <a href="#tshetsheba">TSHéTSHéBA</a>
+    <a href="#contact">Contact</a>
   </nav>
+</header>
 
-  <div class="product-container"></div>
+<div class="hero">
+  <h1>Bienvenue dans l'univers OLCEMAT & TSHéTSHéBA Faites vos achats en toutes securité</h1>
+</div>
 
-  <section id="formation-section">
-    <h2>Rejoignez nos plateformes</h2>
-    <p>Pour suivre nos formations et découvrir nos produits, cliquez sur les liens ci-dessous :</p>
-    <a href="https://whatsapp.com/channel/0029VaykEecGE56jUBsgRb2n" target="_blank" class="formation-button">WhatsApp</a>
-    <a href="https://youtube.com/@mr-rio-billions?si=5MXQ0BALBV2Ber6-" target="_blank" class="formation-button">YouTube</a>
-    <a href="https://chat.whatsapp.com/BROpeDJ7jlWCsbEQG4i3kn" target="_blank" class="formation-button">Formation VisionTech World</a>
-    <a href="#a-propos" class="formation-button">À Propos</a>
-  </section>
-
-  <section id="a-propos">
-    <h2>À propos de nous</h2>
-    <p>OLCEMAT est une marque spécialisée dans la mode personnalisée. Nous vous offrons la possibilité de commander des vêtements uniques avec impression de vos idées ou de notre marque officielle. Vous pouvez aussi commander votre propre site web professionnel et suivre nos formations gratuites via notre communauté VisionTech World.</p>
-    <a href="https://wa.me/+22898207231?text=Je%20souhaite%20signer%20un%20partenariat%20avec%20OLCEMAT" class="partner-button" target="_blank">Devenir Partenaire</a>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 OLCEMAT. Tous droits réservés.</p>
-  </footer>
-
-  <!-- Robot IA flottant -->
-  <div id="chatbot">
-    <span>Salut ! 👋 Je peux t’aider à commander ou rejoindre nos groupes et chaînes YouTube.</span>
-    <button onclick="this.parentElement.style.display='none'">X</button>
+<!-- SECTION OLCEMAT -->
+<section id="olcemat">
+  <h2>OLCEMAT</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="2.png" alt="OLCEMAT Hoodies Noir / Beige / Gris / Bleu / Royal">
+      <div class="card-content">
+        <h3>Hoodie Multi-Couleurs</h3>
+        <p>Rien que de la qualité</p>
+        <a href="https://wa.me/22997881613?text=Bonjour,%20je%20souhaite%20commander%20ce%20Hoodie%20Multi-Couleurs" target="_blank">
+          <button>Commander</button>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="1.png" alt="OLCEMAT Hoodie Bleu et Blanc">
+      <div class="card-content">
+        <h3>Hoodie Bleu / Blanc</h3>
+        <p>Rien que de la qualité</p>
+        <a href="https://wa.me/22997881613?text=Bonjour,%20je%20souhaite%20commander%20ce%20Hoodie%20Bleu%20Blanc" target="_blank">
+          <button>Commander</button>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="5.png" alt="OLCEMAT Hoodie Rose">
+      <div class="card-content">
+        <h3>Hoodie Rose</h3>
+        <p>Rien que de la qualité</p>
+        <a href="https://wa.me/22997881613?text=Bonjour,%20je%20souhaite%20commander%20ce%20Hoodie%20Rose" target="_blank">
+          <button>Commander</button>
+        </a>
+      </div>
+    </div>
   </div>
+</section>
 
-  <script>
-    const produits = [
-      { nom: "T-shirt Blanc 'Happy New Year'", description: "T-shirt blanc avec impression 'Happy New Year' festive et élégante.", image: "https://imgur.com/dUcG3JE.jpg" },
-      { nom: "Pull-over Rose OLCEMAT", description: "Pull-over rose doux avec impression de la marque OLCEMAT.", image: "https://imgur.com/IWmQEZ1.jpg" },
-      { nom: "T-shirt Blanc 'Merry Christmas'", description: "T-shirt blanc décoré avec le message 'Merry Christmas'.", image: "https://imgur.com/warY3Cr.jpg" },
-      { nom: "T-shirt Gris OLCEMAT Style 1", description: "T-shirt gris personnalisé avec logo OLCEMAT (style 1).", image: "https://imgur.com/SoT5YlI.jpg" },
-      { nom: "T-shirt Gris OLCEMAT Style 2", description: "T-shirt gris personnalisé avec logo OLCEMAT (style 2).", image: "https://imgur.com/wbiKQHj.jpg" },
-      { nom: "T-shirt Bleu Ciel", description: "T-shirt bleu ciel simple et élégant pour tous les jours.", image: "https://imgur.com/9x5n2ka.jpg" },
-      { nom: "T-shirt Rose", description: "T-shirt rose moderne et doux pour les amoureux de couleur.", image: "https://imgur.com/81eR0Mg.jpg" },
-      { nom: "T-shirt Rouge", description: "T-shirt rouge vif avec un design attractif.", image: "https://imgur.com/DPJK9kz.jpg" },
-      { nom: "T-shirt Violet", description: "T-shirt violet tendance avec coupe confortable.", image: "https://imgur.com/6SYOiQh.jpg" },
-      { nom: "T-shirt Noir", description: "T-shirt noir classique et indémodable.", image: "https://imgur.com/gdJKR9D.jpg" },
-      { nom: "T-shirt Jaune", description: "T-shirt jaune éclatant et lumineux pour une touche solaire.", image: "https://imgur.com/hoPMGn0.jpg" },
-      { nom: "T-shirt Gris Clair", description: "T-shirt gris clair passe-partout avec style neutre.", image: "https://imgur.com/d9k59wW.jpg" },
-      { nom: "T-shirt Blanc Uni", description: "T-shirt blanc uni idéal pour personnalisation.", image: "https://imgur.com/d3UvbKo.jpg" },
-      { nom: "T-shirt Bleu Ciel (Variante 2)", description: "Autre modèle de t-shirt bleu ciel élégant.", image: "https://imgur.com/LDmmq8e.jpg" },
-      { nom: "T-shirt Bleu Ciel (Variante 3)", description: "Troisième variante de t-shirt bleu ciel.", image: "https://imgur.com/ksNBvoN.jpg" },
-      { nom: "T-shirt Vert OLCEMAT PAMANE", description: "T-shirt vert personnalisé avec la marque OLCEMAT PAMANE.", image: "https://imgur.com/aM2tafB.jpg" },
-      { nom: "T-shirt Noir avec Logo OLCEMAT", description: "T-shirt noir avec design OLCEMAT imprimé.", image: "https://imgur.com/OXtGkSO.jpg" },
-      { nom: "T-shirt Rose avec Logo OLCEMAT", description: "T-shirt rose moderne avec logo OLCEMAT au centre.", image: "https://imgur.com/YAoj66X.jpg" },
-      { nom: "T-shirt Bleu avec Marque OLCEMAT", description: "T-shirt bleu stylisé avec impression OLCEMAT.", image: "https://imgur.com/ejreToT.jpg" },
-      { nom: "Logo OLCEMAT Étoile Classique", description: "Logo officiel à imprimer sur les produits OLCEMAT.", image: "https://imgur.com/wwCiB86.jpg" },
-      { nom: "Logo OLCEMAT Variante Moderne", description: "Version alternative du logo OLCEMAT pour design moderne.", image: "https://imgur.com/AP9MfO9.jpg" }
-    ];
+<!-- SECTION TSHéTSHéBA -->
+<section id="tshetsheba">
+  <h2>TSHéTSHéBA</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/mnt/data/A_digital_photograph_features_a_young_African_woma.png" alt="TSHéTSHéBA Hoodie Rose Love">
+      <div class="card-content">
+        <h3>Hoodie Rose 💖</h3>
+        <p>Rien que de la qualité</p>
+        <a href="https://wa.me/22997881613?text=Bonjour,%20je%20souhaite%20commander%20ce%20Hoodie%20Rose%20TSHéTSHéBA" target="_blank">
+          <button>Commander</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const container = document.querySelector(".product-container");
-    produits.forEach(p => {
-      container.innerHTML += `
-        <div class="product">
-          <img src="${p.image}" alt="${p.nom}">
-          <h3>${p.nom}</h3>
-          <p>${p.description}</p>
-          <a href="https://wa.me/+22898207231?text=Je%20veux%20commander%20le%20${encodeURIComponent(p.nom)}" class="buy-button">Commander</a>
-        </div>
-      `;
-    });
-  </script>
+<!-- FOOTER -->
+<footer id="contact">
+  <p>Contactez-nous :</p>
+  <p>📞 +228 98 20 72 31</p>
+  <p>✉️ <a href="mailto:riocresus@gmail.com">riocresus@gmail.com</a></p>
+  <p>📸 Instagram : <a href="https://www.instagram.com/rio_cresus?igsh=YzljYTk1ODg3Zg==" target="_blank">rio_cresus</a></p>
+  <p> AVEC NOUS C'EST DU VRAI *TÉMÉLEFOUNOU* </p>
+  <p>© 2026 OLCEMAT & TSHéTSHéBA</p>
+</footer>
+
 </body>
-</html>
+        </html>
